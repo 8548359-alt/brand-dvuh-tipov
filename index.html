@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бренд двух типов — лимитированный мерч</title>
+<meta name="description" content="Лимитированная одежда с фразами, которые все знают. Тираж 50 штук на модель, у каждой вещи свой номер.">
+<meta property="og:title" content="Бренд двух типов — лимитированный мерч">
+<meta property="og:description" content="Фразы, которые все знают. Вещи, которых больше не будет. Тираж 50 шт.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&family=Oswald:wght@500;600;700&family=Rubik:wght@500;700&family=Rubik+Spray+Paint&family=Caveat:wght@700&family=Marck+Script&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0E0E;--ink:#F2F0EA;--muted:#CFCCC4;--dim:#A9A69E;--card:#171717;--line:#262626;--accent:#E8FF3A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:16px;padding-right:16px}
+@media(min-width:640px){.wrap{padding-left:24px;padding-right:24px}}
+.display{font-family:'Unbounded',sans-serif;font-weight:800}
+header .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:20px}
+.logo{font-size:20px;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:20px;font-size:15px;font-weight:600}
+nav a{color:var(--ink);text-decoration:none}
+nav a.tg{color:var(--accent)}
+.hero{padding-top:56px;padding-bottom:72px;display:flex;flex-direction:column;gap:28px}
+.pill{align-self:flex-start;padding:8px 14px;border:1px solid #3A3A3A;border-radius:999px;font-size:14px;font-weight:600;color:#BDBAB2}
+h1{margin:0;font-size:clamp(38px,7vw,96px);line-height:1.02;letter-spacing:-.01em}
+h1 span{color:var(--accent)}
+.lead{margin:0;max-width:620px;font-size:19px;line-height:1.55;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;font-weight:800;font-size:16px;text-decoration:none;border-radius:4px}
+.btn-acc{background:var(--accent);color:#0E0E0E}
+.btn-out{border:1px solid var(--ink);color:var(--ink)}
+.btn-dark{background:#0E0E0E;color:var(--ink)}
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts .wrap{padding-top:36px;padding-bottom:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.fact b{display:block;font-family:'Unbounded',sans-serif;font-weight:800;font-size:30px;color:var(--accent);margin-bottom:8px}
+.fact p{margin:0;font-size:16px;line-height:1.5;color:var(--muted)}
+section.block{padding-top:72px;padding-bottom:24px}
+.head{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
+h2{margin:0;font-size:clamp(28px,4vw,48px)}
+.head p{margin:0;font-size:15px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.gal{position:relative;height:430px;overflow:hidden;touch-action:pan-y;user-select:none}
+.track{display:flex;width:200%;height:430px;transition:transform .3s ease}
+.slide{flex:0 0 50%;height:430px;display:flex;justify-content:center;align-items:center}
+.holder{position:relative;width:100%;max-width:340px;aspect-ratio:340/400}
+.g{position:absolute;left:0;top:0;width:340px;height:400px;transform-origin:0 0;font-family:'Oswald',sans-serif}
+.g svg.body{position:absolute;left:0;top:14px;width:340px;height:380px}
+.num{position:absolute;left:0;right:0;top:60px;text-align:center;font-size:9px;font-weight:600;letter-spacing:.22em}
+.tag{position:absolute;top:12px;left:12px;padding:5px 9px;background:rgba(255,255,255,.92);border-radius:3px;font-size:11px;font-weight:800;letter-spacing:.12em;color:#151517}
+.sticker{position:absolute;top:10px;right:12px;width:64px;height:64px;border-radius:50%;background:#151517;color:#F4F1EA;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transform:rotate(10deg);font-weight:800;line-height:1;text-align:center;box-shadow:0 6px 12px rgba(0,0,0,.25)}
+.sticker small{font-size:9px;letter-spacing:.12em}
+.sticker span{font-size:20px;color:var(--accent)}
+.arr{position:absolute;top:193px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(21,21,23,.72);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.arr.l{left:8px}.arr.r{right:8px}
+.arr svg{width:20px;height:20px}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px}
+.dots i{display:block;width:8px;height:8px;border-radius:50%;background:rgba(21,21,23,.25)}
+.dots i.on{background:#151517}
+.info{padding:18px;display:flex;flex-direction:column;gap:12px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.info h3{margin:0;font-size:17px;font-weight:800}
+.price{font-size:17px;font-weight:800;white-space:nowrap}
+.left{font-size:14px;color:var(--dim)}
+.cols-c{font-size:14px;line-height:1.45;color:var(--muted)}
+.order{display:flex;justify-content:center;align-items:center;min-height:48px;background:var(--ink);color:#0E0E0E;font-weight:800;font-size:15px;text-decoration:none;border-radius:4px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{width:100%;min-width:520px;border-collapse:collapse;font-size:15px}
+th,td{padding:14px 16px;text-align:left}
+thead tr{background:var(--card)}
+tbody tr{border-top:1px solid var(--line)}
+td{color:var(--muted)} td:first-child{font-weight:800;color:var(--ink)}
+.note{margin:16px 0 0;font-size:14px;color:var(--dim)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.box{padding:22px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.box b{display:block;font-size:17px;margin-bottom:8px}
+.box p{margin:0;font-size:15px;line-height:1.5;color:var(--muted)}
+.cta{background:var(--accent);color:#0E0E0E;margin-top:72px}
+.cta .wrap{padding-top:64px;padding-bottom:64px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.cta h2{font-size:clamp(26px,3.4vw,42px);line-height:1.1;margin-bottom:10px}
+.cta p{margin:0;font-size:17px;line-height:1.5;max-width:640px}
+footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo display">БРЕНД ДВУХ <span>ТИПОВ</span></div>
+  <nav>
+    <a href="#drop">Дроп</a>
+    <a href="#sizes">Размеры</a>
+    <a href="#delivery">Доставка</a>
+    <a class="tg" href="https://t.me/tonyvol">Telegram</a>
+  </nav>
+</div></header>
+
+<main>
+<section class="wrap hero">
+  <div class="pill">Дроп №01 · тираж 50 шт. на модель</div>
+  <h1 class="display">Фразы, которые<br>все знают.<br><span>Вещи, которых<br>больше не будет.</span></h1>
+  <p class="lead">Лимитированная одежда с фразами, которые давно стали частью языка. У каждой вещи свой номер в тираже. Закончился тираж — модель уходит навсегда.</p>
+  <div class="btns">
+    <a class="btn btn-acc" href="#drop">Смотреть дроп</a>
+    <a class="btn btn-out" href="https://t.me/tonyvol">Следить за дропами</a>
+  </div>
+</section>
+
+<section class="facts"><div class="wrap">
+  <div class="fact"><b>№ 001/050</b><p>Номер экземпляра на каждой вещи. Твой — единственный.</p></div>
+  <div class="fact"><b>12</b><p>Наш игровой номер — на всех джерси и майках.</p></div>
+  <div class="fact"><b>0 повторов</b><p>Тираж не допечатываем. Каждый дроп — новые фразы.</p></div>
+</div></section>
+
+<section id="drop" class="wrap block">
+  <div class="head">
+    <h2 class="display">Дроп №01</h2>
+    <p>Листай карточку — там вторая сторона. «Заказать» откроет Telegram с готовым сообщением.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="sizes" class="wrap block">
+  <div class="head"><h2 class="display">Размерная сетка</h2></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Размер</th><th>Ширина, см</th><th>Длина, см</th><th>Рост, см</th></tr></thead>
+    <tbody>
+      <tr><td>S</td><td>[—]</td><td>[—]</td><td>[—]</td></tr>
+      <tr><td>M</td><td>[—]</td><td>[—]</td><td>[—]</td></tr>
+      <tr><td>L</td><td>[—]</td><td>[—]</td><td>[—]</td></tr>
+      <tr><td>XL</td><td>[—]</td><td>[—]</td><td>[—]</td></tr>
+      <tr><td>XXL</td><td>[—]</td><td>[—]</td><td>[—]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Не уверен в размере — напиши в Telegram, подскажем по замерам.</p>
+</section>
+
+<section id="delivery" class="wrap block">
+  <div class="head"><h2 class="display">Доставка и оплата</h2></div>
+  <div class="cols">
+    <div class="box"><b>Москва</b><p>[Курьер / самовывоз — условия и срок]</p></div>
+    <div class="box"><b>По России</b><p>[СДЭК / Почта — стоимость и срок]</p></div>
+    <div class="box"><b>Оплата</b><p>[Перевод / СБП / при получении]</p></div>
+  </div>
+</section>
+
+<section class="cta"><div class="wrap">
+  <div>
+    <h2 class="display">Следующий дроп — только для своих</h2>
+    <p>Подписчики первыми видят новые фразы и выбирают номер в тираже.</p>
+  </div>
+  <a class="btn btn-dark" href="https://t.me/tonyvol">Подписаться в Telegram</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>Бренд двух типов · лимитированный мерч</div>
+  <div>Заказы: <a href="https://t.me/tonyvol">@tonyvol</a></div>
+</div></footer>
+
+<script>
+(function () {
+  var TG = 'tonyvol';
+  var RIB = 'M62 350 L278 350 L278 372 C210 378 130 378 62 372 Z M4 296 L42 302 L40 326 L6 322 Z M336 296 L298 302 L300 326 L334 322 Z';
+  var TEE = ' L286 40 C300 46 312 60 318 76 L340 140 L290 160 L272 120 L274 368 C210 376 130 376 66 368 L68 120 L50 160 L0 140 L22 76 C28 60 40 46 54 40 Z';
+  var JER = ' L246 16 C246 70 262 110 288 128 L288 368 C210 376 130 376 52 368 L52 128 C78 110 94 70 94 16 Z';
+  var SW = ' L280 38 C298 44 308 58 312 74 L336 296 L298 302 L276 140 L278 350 L62 350 L64 140 L42 302 L4 296 L28 74 C32 58 42 44 60 38 Z';
+  var WT = ' L296 44 C312 50 322 62 326 78 L340 172 L292 184 L278 132 L280 372 C210 380 130 380 60 372 L62 132 L48 184 L0 172 L14 78 C18 62 28 50 44 44 Z';
+  var P = {
+    jF: { b: 'M120 16 C138 66 202 66 220 16' + JER, r: '', t: 'M94 16 C94 70 78 110 52 128 M120 16 C138 66 202 66 220 16 M246 16 C246 70 262 110 288 128', w: 9 },
+    jB: { b: 'M120 16 C150 36 190 36 220 16' + JER, r: '', t: 'M94 16 C94 70 78 110 52 128 M120 16 C150 36 190 36 220 16 M246 16 C246 70 262 110 288 128', w: 9 },
+    kF: { b: 'M122 16 C138 70 202 70 218 16 L242 16 C242 78 258 116 284 132 L284 368 C210 376 130 376 56 368 L56 132 C82 116 98 78 98 16 Z', r: '', t: 'M98 16 C98 78 82 116 56 132 M122 16 C138 70 202 70 218 16 M242 16 C242 78 258 116 284 132', w: 5 },
+    kB: { b: 'M122 16 C150 38 190 38 218 16 L242 16 C242 78 258 116 284 132 L284 368 C210 376 130 376 56 368 L56 132 C82 116 98 78 98 16 Z', r: '', t: 'M98 16 C98 78 82 116 56 132 M122 16 C150 38 190 38 218 16 M242 16 C242 78 258 116 284 132', w: 5 },
+    tF: { b: 'M118 22 C140 50 200 50 222 22' + TEE, r: '', t: 'M118 22 C140 50 200 50 222 22', w: 8 },
+    tB: { b: 'M118 22 C150 36 190 36 222 22' + TEE, r: '', t: 'M118 22 C150 36 190 36 222 22', w: 8 },
+    wF: { b: 'M122 24 C142 46 198 46 218 24' + WT, r: '', t: 'M122 24 C142 46 198 46 218 24', w: 7 },
+    wB: { b: 'M122 24 C150 36 190 36 218 24' + WT, r: '', t: 'M122 24 C150 36 190 36 218 24', w: 7 },
+    sF: { b: 'M120 24 C140 48 200 48 220 24' + SW, r: RIB, t: 'M120 24 C140 48 200 48 220 24', w: 9 },
+    sB: { b: 'M120 24 C150 36 190 36 220 24' + SW, r: RIB, t: 'M120 24 C150 36 190 36 220 24', w: 9 }
+  };
+  function box(l, t, w, al, ex) { return 'position:absolute;left:' + l + 'px;top:' + t + 'px;width:' + w + 'px;display:flex;flex-direction:column;align-items:' + al + ';' + (ex || ''); }
+  function L(t, st) { return { t: t, st: st || '' }; }
+  var RU = "font-family:'Rubik',sans-serif;";
+  var SPRAY = "font-family:'Rubik Spray Paint','Rubik',sans-serif;font-size:23px;line-height:1.05";
+  var SMALL = RU + 'font-weight:500;font-size:14px;line-height:1.3;letter-spacing:0.06em';
+  function twelve() { return { box: box(70, 128, 200, 'center', 'text-align:center;font-weight:600;font-size:97px;line-height:0.95'), lines: [L('12')] }; }
+  var BLANK = { box: 'display:none', lines: [] };
+  function S(label, p, num, o) { var r = { label: label, p: p, num: !!num, box: (o || BLANK).box, lines: (o || BLANK).lines, hoop: o && o.hoop, paint: o && o.paint }; return r; }
+  var BASA = { box: box(70, 141, 200, 'center', RU + 'font-weight:700;font-size:37px;line-height:0.95;letter-spacing:0.02em'), lines: [L('ЭТО'), L('БАЗА')] };
+
+  var items = [
+    { kind: 'ДЖЕРСИ', title: 'Джерси «Сегодня бросаю мяч…»', colors: 'белый, чёрный, тёмно-синий', price: '3 000', bg: '#FF8A3D',
+      c: { body: '#1C2B4A', edge: '#111B30', rib: '#F1E4C8', ink: '#F1E4C8' },
+      sides: [S('СПЕРЕДИ', P.jF, 0, { box: box(70, 146, 200, 'center', 'font-size:23px;line-height:1.05;letter-spacing:0.03em;text-align:center'), lines: [L('СЕГОДНЯ', 'font-weight:500'), L('БРОСАЮ МЯЧ,', 'font-weight:500'), L('А ЗАВТРА', 'font-weight:500'), L('ЖЕНУ И ДЕТЕЙ', 'font-weight:700')] }), S('СЗАДИ', P.jB, 1, twelve())] },
+    { kind: 'ДЖЕРСИ', title: 'Джерси «Воздухан»', colors: 'красный, чёрный с золотом, белый с синим', price: '3 000', bg: '#E8FF3A',
+      c: { body: '#C8102E', edge: '#8E0B20', rib: '#FFFFFF', ink: '#FFFFFF' },
+      sides: [S('СЗАДИ', P.jB, 1, { box: box(70, 116, 200, 'center', 'gap:6px;font-weight:600'), lines: [L('ВОЗДУХАН', 'font-size:23px;line-height:1;letter-spacing:0.08em'), L('12', 'font-size:97px;line-height:0.95')] }), S('СПЕРЕДИ', P.jF, 0, { box: box(70, 165, 200, 'center', 'font-weight:600;font-size:60px;line-height:1'), lines: [L('12')] })] },
+    { kind: 'СВИТШОТ', title: 'Свитшот 18+ «Ты шо…»', colors: 'чёрный, графит, серый меланж', price: '3 000', bg: '#FF2E63', adult: true,
+      c: { body: '#3A3B3F', edge: '#26272A', rib: '#323337', ink: '#C6F432' },
+      sides: [S('СПЕРЕДИ', P.sF, 0, { box: box(70, 140, 200, 'center', SPRAY + ';text-align:center;transform:rotate(-2deg)'), lines: [L('ТЫ ШО,'), L('Е*НУТЫЙ'), L('ФРАЕР,'), L('БЛ*ДЬ?')] }),
+        S('СЗАДИ', P.sB, 1, { box: box(70, 124, 200, 'center', 'text-align:center'), lines: [L('ТЫ ПЕРЕ-', SPRAY), L('КРЕСТИСЬ,', SPRAY), L('ЧТО У ТЕБЯ', SMALL + ';margin-top:8px'), L('БАТАРЕИ ГОРЯЧИЕ', SMALL), L('И КИПЯТОК ДОМА ЕСТЬ', SMALL)] })] },
+    { kind: 'СВИТШОТ', title: 'Свитшот «Вот такие дела, собачка»', colors: 'молочный, серый меланж, пыльно-голубой', price: '3 000', bg: '#F2C230',
+      c: { body: '#A9BCCB', edge: '#8DA2B3', rib: '#9AAEBE', ink: '#1C2B4A' },
+      sides: [S('СПЕРЕДИ', P.sF, 0, { box: box(104, 146, 140, 'flex-start', RU + 'font-weight:500;font-size:23px;line-height:1.1'), lines: [L('Вот такие'), L('дела,'), L('собачка')] }), S('СЗАДИ', P.sB, 1)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Шёл 2027 год…»', colors: 'чёрный, белый, тёмно-зелёный', price: '2 500', bg: '#FF8FB1',
+      c: { body: '#24392E', edge: '#16241D', rib: '#1E3127', ink: '#EFE6D2' },
+      sides: [S('СЗАДИ', P.tB, 1, { box: box(106, 150, 150, 'flex-start', "font-family:'PT Mono',monospace;font-size:23px;line-height:1.15"), lines: [L('Шёл'), L('2027 год…')] }), S('СПЕРЕДИ', P.tF, 0)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Это база»', colors: 'белый, чёрный, графит', price: '2 500', bg: '#E8FF3A',
+      c: { body: '#151517', edge: '#000000', rib: '#26272B', ink: '#F4F1EA' },
+      sides: [S('СЗАДИ', P.tB, 1, BASA), S('СПЕРЕДИ', P.tF, 0)] },
+    { kind: 'СВИТШОТ', title: 'Свитшот «Это база»', colors: 'серый меланж, чёрный, молочный', price: '3 000', bg: '#FF5A1F',
+      c: { body: '#F3EDE0', edge: '#D9D1BF', rib: '#E8E1D2', ink: '#151517' },
+      sides: [S('СЗАДИ', P.sB, 1, BASA), S('СПЕРЕДИ', P.sF, 0)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Вы не понимаете, это другое»', colors: 'белый, чёрный, серо-голубой', price: '2 500', bg: '#FFB020',
+      c: { body: '#A9BCCB', edge: '#8DA2B3', rib: '#9AAEBE', ink: '#1C2B4A' },
+      sides: [S('СЗАДИ', P.tB, 1, { box: box(70, 146, 200, 'center', 'gap:4px'), lines: [L('ВЫ НЕ ПОНИМАЕТЕ,', 'font-weight:500;font-size:14px;line-height:1.2;letter-spacing:0.14em'), L('это другое', "font-family:'Caveat',cursive;font-weight:700;font-size:37px;line-height:1;transform:rotate(-3deg)")] }), S('СПЕРЕДИ', P.tF, 0)] },
+    { kind: 'МАЙКА', title: 'Майка «Я тебя могну»', colors: 'чёрный, белый, серый меланж', price: '2 500', bg: '#4DA3FF',
+      c: { body: '#FBFAF7', edge: '#D6D3CB', rib: '#E6E3DB', ink: '#C8102E' },
+      sides: [S('СПЕРЕДИ', P.kF, 0, { box: box(70, 166, 200, 'center', 'gap:4px'), lines: [L('Я ТЕБЯ', 'font-weight:500;font-size:14px;line-height:1;letter-spacing:0.24em'), L('МОГНУ', 'font-weight:700;font-size:37px;line-height:1;letter-spacing:0.04em;transform:skewX(-6deg)')] }), S('СЗАДИ', P.kB, 1, twelve())] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Ой, всё»', colors: 'белый, чёрный, розовый', price: '2 500', bg: '#FF5A1F',
+      c: { body: '#F2B8C6', edge: '#D99CAB', rib: '#E8AABA', ink: '#6B1D2A' },
+      sides: [S('СПЕРЕДИ', P.tF, 0, { box: box(70, 131, 200, 'center', RU + 'font-weight:700;font-size:60px;line-height:0.9'), lines: [L('ОЙ,'), L('ВСЁ')] }), S('СЗАДИ', P.tB, 1)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Я художник, я так вижу»', colors: 'белый с красным, синим или жёлтым мазком', price: '2 500', bg: '#4C7BF0',
+      c: { body: '#FDFCFA', edge: '#D6D3CB', rib: '#E6E3DB', ink: '#151517' },
+      sides: [S('СПЕРЕДИ', P.tF, 0, { paint: true, box: box(60, 132, 220, 'center', "font-family:'Marck Script',cursive;font-size:36px;line-height:1.05;transform:rotate(-4deg)"), lines: [L('Я художник,'), L('я так вижу', 'padding-left:30px')] }), S('СЗАДИ', P.tB, 1)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «Сам решу»', colors: 'белый, чёрный, хаки', price: '2 500', bg: '#F2C230',
+      c: { body: '#5E6046', edge: '#474934', rib: '#53553D', ink: '#EFE6D2' },
+      sides: [S('СПЕРЕДИ', P.tF, 0, { box: box(70, 150, 200, 'center', RU + 'font-weight:700;font-size:37px;line-height:0.95;letter-spacing:0.02em'), lines: [L('САМ'), L('РЕШУ')] }), S('СЗАДИ', P.tB, 1)] },
+    { kind: 'МАЙКА', title: 'Майка «Это фиаско, братан»', colors: 'белый, чёрный, песочный', price: '2 500', bg: '#2EC4B6',
+      c: { body: '#D9C7A7', edge: '#BFAA86', rib: '#CDB993', ink: '#3E2A1E' },
+      sides: [S('СПЕРЕДИ', P.kF, 0, { hoop: true, box: box(70, 214, 200, 'center', 'gap:2px'), lines: [L('ЭТО ФИАСКО,', 'font-weight:500;font-size:14px;line-height:1;letter-spacing:0.24em'), L('БРАТАН', 'font-weight:700;font-size:37px;line-height:1;letter-spacing:0.04em')] }), S('СЗАДИ', P.kB, 1, twelve())] },
+    { kind: 'ЖЕНСКАЯ ОВЕРСАЙЗ', title: 'Футболка «Ой, всё» — женская оверсайз', colors: 'молочный, розовый, чёрный', price: '2 500', bg: '#FFD23F',
+      c: { body: '#F2B8C6', edge: '#D99CAB', rib: '#E8AABA', ink: '#6B1D2A' },
+      sides: [S('СПЕРЕДИ', P.wF, 0, { box: box(196, 124, 80, 'flex-start', RU + 'font-weight:700;font-size:14px;line-height:1;letter-spacing:0.02em'), lines: [L('ой, всё')] }), S('СЗАДИ', P.wB, 1)] },
+    { kind: 'ФУТБОЛКА', title: 'Футболка «А что, так можно было?»', colors: 'белый, молочный, чёрный', price: '2 500', bg: '#FF8FB1',
+      c: { body: '#F3EDE0', edge: '#D9D1BF', rib: '#E6DECD', ink: '#2647A8' },
+      sides: [S('СЗАДИ', P.tB, 1, { box: box(104, 124, 150, 'flex-start', "font-family:'Caveat',cursive;font-weight:700;font-size:37px;line-height:0.95;transform:rotate(-3deg)"), lines: [L('А что,'), L('так можно', 'padding-left:10px'), L('было?', 'padding-left:30px')] }), S('СПЕРЕДИ', P.tF, 0)] }
+  ];
+
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+  var HOOP = function (ink) {
+    return '<svg aria-hidden="true" viewBox="0 0 200 120" style="position:absolute;left:105px;top:128px;width:130px;height:78px">' +
+      '<rect x="20" y="10" width="90" height="56" rx="3" style="fill:none;stroke:' + ink + ';stroke-width:4"/>' +
+      '<rect x="48" y="34" width="34" height="24" style="fill:none;stroke:' + ink + ';stroke-width:3"/>' +
+      '<path d="M41 72 L48 106 M89 72 L82 106 M53 74 L57 106 M77 74 L73 106 M65 75 V106 M45 88 L85 88 M48 100 L82 100" style="fill:none;stroke:' + ink + ';stroke-width:2.4"/>' +
+      '<ellipse cx="65" cy="72" rx="25" ry="5" style="fill:none;stroke:' + ink + ';stroke-width:4"/>' +
+      '<path d="M92 64 Q110 38 134 42" style="fill:none;stroke:' + ink + ';stroke-width:3;stroke-dasharray:6 6"/>' +
+      '<circle cx="162" cy="36" r="21" style="fill:#F26B1D"/>' +
+      '<path d="M141 36 H183 M162 15 V57 M148 21 C156 30 156 42 148 51 M176 21 C168 30 168 42 176 51" style="fill:none;stroke:#1A1A1A;stroke-width:2.6"/></svg>';
+  };
+  var PAINT = '<svg aria-hidden="true" viewBox="0 0 220 140" style="position:absolute;left:60px;top:108px;width:220px;height:140px">' +
+    '<path d="M14 52 C30 30 70 24 104 28 C140 32 176 22 204 36 C214 42 212 54 202 58 C210 66 208 80 194 84 C200 94 186 104 170 100 C140 108 100 112 66 106 C40 112 18 104 20 92 C8 86 6 72 18 66 C8 62 8 56 14 52 Z" style="fill:#E0443A"/>' +
+    '<path d="M60 104 C60 116 64 124 62 130 C60 134 56 132 57 126 C58 118 56 110 56 104 Z M150 100 C152 110 154 116 152 120 C150 123 147 121 147 116 C147 110 146 104 146 100 Z" style="fill:#E0443A"/>' +
+    '<circle cx="210" cy="22" r="4" style="fill:#E0443A"/><circle cx="10" cy="40" r="3" style="fill:#E0443A"/><circle cx="214" cy="96" r="3" style="fill:#E0443A"/>' +
+    '<path d="M30 56 C80 46 140 50 196 44 M26 88 C90 80 150 86 190 76" style="fill:none;stroke:rgba(255,255,255,0.28);stroke-width:3;stroke-linecap:round"/></svg>';
+
+  function slide(s, c) {
+    var h = '<div class="slide"><div class="holder"><div class="g">' +
+      '<svg class="body" aria-hidden="true" viewBox="0 0 340 380">' +
+      '<path d="' + s.p.b + '" style="fill:' + c.body + ';stroke:' + c.edge + ';stroke-width:1.5"/>' +
+      (s.p.r ? '<path d="' + s.p.r + '" style="fill:' + c.rib + ';stroke:' + c.edge + ';stroke-width:1.5"/>' : '') +
+      '<path d="' + s.p.t + '" style="fill:none;stroke:' + c.rib + ';stroke-width:' + s.p.w + '"/></svg>';
+    if (s.num) h += '<div class="num" style="color:' + c.ink + '">№ 01 / 50</div>';
+    if (s.hoop) h += HOOP(c.ink);
+    if (s.paint) h += PAINT;
+    if (s.lines.length) {
+      h += '<div style="' + s.box + ';color:' + c.ink + '">';
+      s.lines.forEach(function (l) { h += '<div style="' + l.st + '">' + esc(l.t) + '</div>'; });
+      h += '</div>';
+    }
+    return h + '</div></div></div>';
+  }
+  var chevL = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" style="fill:none;stroke:#F4F1EA;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+  var chevR = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" style="fill:none;stroke:#F4F1EA;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"/></svg>';
+
+  var grid = document.getElementById('grid');
+  var html = '';
+  items.forEach(function (it, i) {
+    var href = 'https://t.me/' + TG + '?text=' + encodeURIComponent('Привет! Хочу заказать: ' + it.title + '. Цвет: . Размер: ');
+    html += '<article class="card" data-i="' + i + '">' +
+      '<div class="gal" style="background:' + it.bg + '">' +
+      '<div class="track"><div style="display:contents">' + slide(it.sides[0], it.c) + slide(it.sides[1], it.c) + '</div></div>' +
+      '<div class="tag"><span>' + esc(it.kind) + '</span> · <span class="side">' + it.sides[0].label + '</span></div>' +
+      '<div class="sticker"><small>' + (it.adult ? 'ТОЛЬКО' : 'ТИРАЖ') + '</small><span>' + (it.adult ? '18+' : '50') + '</span></div>' +
+      '<button type="button" class="arr l" aria-label="Предыдущая сторона">' + chevL + '</button>' +
+      '<button type="button" class="arr r" aria-label="Следующая сторона">' + chevR + '</button>' +
+      '<div class="dots"><i class="on"></i><i></i></div>' +
+      '</div>' +
+      '<div class="info"><div class="row"><h3>' + esc(it.title) + '</h3><div class="price">' + it.price + ' ₽</div></div>' +
+      '<div class="cols-c">Цвета: ' + esc(it.colors) + '</div>' +
+      '<div class="left">Тираж 50 шт. на модель · осталось 50 из 50</div>' +
+      '<a class="order" href="' + href + '" target="_blank" rel="noopener">Заказать в Telegram</a></div>' +
+      '</article>';
+  });
+  grid.innerHTML = html;
+
+  function fit() {
+    Array.prototype.forEach.call(grid.querySelectorAll('.holder'), function (h) {
+      var k = Math.min(1, h.clientWidth / 340);
+      h.firstChild.style.transform = 'scale(' + k + ')';
+    });
+  }
+  window.addEventListener('resize', fit);
+  Array.prototype.forEach.call(grid.querySelectorAll('.card'), function (card, j) {
+    var it = items[+card.getAttribute('data-i')];
+    var gal = card.querySelector('.gal');
+    var track = card.querySelector('.track');
+    var holders = card.querySelectorAll('.holder');
+    var dots = card.querySelectorAll('.dots i');
+    var side = card.querySelector('.side');
+    var cur = 0;
+    function go(n) {
+      cur = n;
+      track.style.transform = 'translateX(' + (n ? '-50%' : '0') + ')';
+      dots[0].className = n ? '' : 'on';
+      dots[1].className = n ? 'on' : '';
+      side.textContent = it.sides[n].label;
+    }
+    card.querySelector('.arr.l').addEventListener('click', function () { go(cur ? 0 : 1); });
+    card.querySelector('.arr.r').addEventListener('click', function () { go(cur ? 0 : 1); });
+    var x0 = null;
+    gal.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    gal.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (dx < -30) go(1); else if (dx > 30) go(0);
+    });
+  });
+  fit();
+})();
+</script>
+</body>
+</html>
